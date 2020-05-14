@@ -7,40 +7,32 @@ class SnacksController < ApplicationController
         @snack = Snack.find(params[:id])
     end 
 
-    def new 
-        @snack = Snack.new
-    end 
+    # def create 
+    #     @snack = Snack.new(snack_params)
 
-    def edit 
-        @snack = Snack.find(params[:id])
-    end
+    #     if @snack.save
+    #         redirect_to @snack 
+    #     else
+    #         render 'new'
+    #     end
+    # end 
 
-    def create 
-        @snack = Snack.new(snack_params)
+    # def update 
+    #     @snack = Snack.find(params[:id])
 
-        if @snack.save
-            redirect_to @snack 
-        else
-            render 'new'
-        end
-    end 
+    #     if @snack.update(snack_params)
+    #         redirect_to @snack
+    #     else
+    #         render 'edit'
+    #     end
+    # end
 
-    def update 
-        @snack = Snack.find(params[:id])
+    # def destroy 
+    #     @snack = Snack.find(params[:id])
+    #     @snack.destroy
 
-        if @snack.update(snack_params)
-            redirect_to @snack
-        else
-            render 'edit'
-        end
-    end
-
-    def destroy 
-        @snack = Snack.find(params[:id])
-        @snack.destroy
-
-        redirect_to snacks_path
-    end 
+    #     redirect_to snacks_path
+    # end 
 
     private
         def snack_params
