@@ -1,21 +1,19 @@
 <h1>Quarantine Snacks</h1>
- 
-<%= link_to 'New Snack Idea?', new_snack_path %>
 
-<table>
-  <tr>
-    <th>Snack</th>
-    <th>Price</th>
-    <th colspan="3"></th>
-  </tr>
+<div id="snacks-container">
  
   <% @snack.each do |snack| %>
-    <tr>
-      <td><%= snack.name %></td>
-      <td><%= snack.price %></td>
-      <td><%= link_to 'Show', snack_path(snack) %></td>
-      <td><%= link_to 'Edit', edit_snack_path(snack) %></td>
-      <td><%= link_to 'Destroy', snack_path(snack), method: :delete, data: { confirm: "Are you sure?" } %></td>
-    </tr>
+    <div id="snack-container">
+      <div id="home-snack">
+        <h4><%= snack.name %></h4>
+        <p><%= snack.price %></p>
+      </div>
+      <div id="snack-buttons">
+        <%= button_to "+", line_items_path(:snack_id => snack.id) %>
+        <%= button_to "+", line_items_path(:snack_id => snack.id) %>
+      </div>
+    </div>
   <% end %>
-</table>
+
+</div>
+

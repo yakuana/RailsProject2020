@@ -1,2 +1,11 @@
-<h1>Carts#show</h1>
-<p>Find me in app/views/carts/show.html.erb</p>
+<h1>Carts Show</h1>
+
+<div id="carts-container">
+ 
+  <% @cart.line_items.each do |line_item| %>
+    <div id="cart-container">
+        <h4>Item: <%= line_item.snack.name %></h4>
+    </div>
+  <% end %>
+
+</div>
