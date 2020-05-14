@@ -13,9 +13,9 @@
     <tr>
       <td><%= snack.name %></td>
       <td><%= snack.price %></td>
-      <td><%= link_to 'Show', snacks_path(snack) %></td>
+      <td><%= link_to 'Show', snack_path(snack) %></td>
       <td><%= link_to 'Edit', edit_snack_path(snack) %></td>
-      <td><%= link_to 'Destroy', snacks_path(snack), method: :delete, data: { confirm: "Are you sure?"} %></td>
+      <td><%= link_to 'Destroy', snack_path(snack), method: :delete, data: { confirm: "Are you sure?" } %></td>
     </tr>
   <% end %>
 </table>
