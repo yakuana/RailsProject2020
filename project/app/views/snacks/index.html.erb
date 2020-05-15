@@ -1,19 +1,35 @@
-<h1>Quarantine Snacks</h1>
+<div id="nav-bar">
+  <h1>Quarantine Snacks</h1>
+  <div id="nav-links">
+    <p id="links"><%= link_to 'Home', controller: 'welcome' %></p>
+    <p id="links"><%= link_to 'Snacks', controller: 'snacks' %></p>
+    <p id="links"><%= link_to 'Cart', controller: 'carts' %></p>
+  </div>
+</div>
 
 <div id="snacks-container">
  
   <% @snack.each do |snack| %>
     <div id="snack-container">
       <div id="home-snack">
+        
+        <% Dir.glob('app/assets/images/*').map do |path| %>
+          <%# <p><%= path.split("/")[-1].split(".")[0] %%>
+          <% if snack.name === path.split("/")[-1].split(".")[0] %>
+            <div id="snack-img"><%= image_tag("#{ File.basename(path) }", :size => "70x70") %></div>
+          
+          <% end %>
+        <% end %>
+      
         <h4><%= snack.name %></h4>
-        <p><%= snack.price %></p>
+        <p><%= number_to_currency(snack.price, :unit => "$") %></p>
       </div>
       <div id="snack-buttons">
-        <%= button_to "+", line_items_path(:snack_id => snack.id) %>
-        <%= button_to "+", line_items_path(:snack_id => snack.id) %>
+        <%= button_to "Add to Cart", line_items_path(:snack_id => snack.id) %>
       </div>
     </div>
   <% end %>
 
 </div>
 
+ 
