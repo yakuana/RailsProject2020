@@ -1,13 +1,18 @@
-<h1>Carts Show</h1>
-
+<div id="nav-bar">
+  <h1>Cart</h1>
+  <div id="nav-links">
+    <p id="links"><%= link_to 'Home', controller: 'welcome' %></p>
+    <p id="links"><%= link_to 'Snacks', controller: 'snacks' %></p>
+    <p id="links"><%= link_to 'Cart', controller: 'carts' %></p>
+  </div>
+</div>
 <%= link_to 'Back', snacks_path %>
 
 <div id="carts-container">
  
   <% @cart.line_items.each do |line_item| %>
     <div id="cart-container">
-        <h4 id="cart-item">Item: <%= line_item.snack.name %></h4>
-        <h4>Price of Items: <%= number_to_currency(line_item.snack.price * line_item.quantity, :unit => "$")%></h4>
+        <h4 id="cart-item">Item: <%= line_item.snack.name %><br/>Price of Items: <%= number_to_currency(line_item.snack.price * line_item.quantity, :unit => "$")%></h4>
         <div id="cart-buttons">
           <%= button_to "+", line_item_add_path(:id => line_item), method: :post%>
           <%=line_item.quantity%>
@@ -18,7 +23,7 @@
         </div>
     </div>
   <% end %>
-  <%= number_to_currency(@cart.total, :unit => "$")%>
+  Total: <%= number_to_currency(@cart.total, :unit => "$")%>
 
   <%= link_to "Empty cart", cart_path(@current_cart),method: :delete %>
 

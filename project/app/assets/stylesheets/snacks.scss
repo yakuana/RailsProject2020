@@ -2,6 +2,35 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+#nav-bar {
+    // border: 1px solid green;
+    background-color: rgba(174, 121, 218, 0.459);
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+#nav-links {
+    // border: 1px solid orange;
+    width: 25%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 20px;
+    margin: auto 0px; 
+}
+
+#links a {
+    text-decoration: none;
+    color: black;
+}
+
+#links a:hover {
+    text-decoration: underline;
+    
+}
 
 #snacks-container {
     // border: 1px solid orange;
@@ -17,20 +46,21 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 20px
+    margin: 20px; 
 }
-
 
 #home-snack {
     // border: 1px solid blue;
-    width: 200px;
-    height: 200px; 
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.1);
+    width: 230px;
+    height: 230px; 
+    box-shadow: 0 8px 16px 0 rgba(82, 32, 95, 0.2), 0 6px 20px 0 rgba(82, 32, 95, 0.1);
     margin: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    border-radius: 10px;
+    font-size: 20px;
 }
 
 #snack-buttons {
@@ -41,4 +71,8 @@
     width: 35%;
     margin: 0 auto;
     size: large;
+}
+
+#snack-img {
+    margin: 5px auto 0 auto
 }

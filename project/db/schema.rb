@@ -13,23 +13,28 @@
 ActiveRecord::Schema.define(version: 2020_05_14_204911) do
 
   create_table "carts", force: :cascade do |t|
-    t.integer "quantity"
-    t.integer "snack_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "line_items", force: :cascade do |t|
-    t.integer "quantity"
+    t.integer "quantity", default: 1
     t.integer "snack_id"
     t.integer "cart_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.float "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "snacks", force: :cascade do |t|
     t.string "name"
-    t.decimal "price"
+    t.decimal "price", default: "0.0"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
